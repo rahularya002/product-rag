@@ -1,0 +1,56 @@
+{
+    "brand": {
+      "name": "Rajasthali",
+      "tagline": "Authentic Indian Handicrafts, Curated Elegance",
+      "mission": "Promote Indian artisans, preserve traditional crafts, and offer premium handcrafted products.",
+      "vision": "Bring Indian craftsmanship into modern homes globally.",
+      "tone": "Elegant, warm, knowledgeable, professional, culturally rooted"
+    },
+  
+    "categories": [
+      "Clothing",
+      "Home & Kitchen",
+      "Lighting",
+      "Garden Decor",
+      "Table Wares",
+      "Gifting",
+      "Toys & Stationery",
+      "Traditional Art Forms",
+      "Marble Handicrafts",
+      "Jewellery, Accessories & Bags",
+      "Pooja Essentials",
+      "Idols & Showpieces"
+    ],
+  
+    "crafts": [
+      {
+        "name": "Block Printing",
+        "origin": "Rajasthan",
+        "description": "Traditional hand-carved wooden block printing technique."
+      },
+      {
+        "name": "Meenakari",
+        "origin": "Jaipur",
+        "description": "Colorful enamel art used in jewellery and decor."
+      },
+      {
+        "name": "Marble Inlay",
+        "origin": "Rajasthan",
+        "description": "Intricate stone inlay craftsmanship inspired by Mughal art."
+      }
+    ],
+  
+    "buying_info": {
+      "shipping": "Pan-India shipping available.",
+      "returns": "Easy return and exchange policy available.",
+      "payments": ["Razorpay", "Stripe", "Credit/Debit Cards", "UPI"],
+      "gst_invoice": "GST invoice provided on request."
+    },
+  
+    "assistant_behavior": {
+      "can_greet": true,
+      "can_small_talk": true,
+      "can_answer_general_questions": true,
+      "must_be_brand_aligned": true
+    }
+  }
