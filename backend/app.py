@@ -58,18 +58,18 @@ db = Chroma(persist_directory=str(CHROMA_DIR), embedding_function=embeddings)
 
 # ---------------- LLMs ----------------
 llm = OllamaLLM(
-    model=os.environ.get("OLLAMA_LLM_MODEL", "qwen2.5:7b"),
+    model=os.environ.get("OLLAMA_LLM_MODEL", "qwen2.5:7b-instruct"),
     temperature=float(os.environ.get("OLLAMA_TEMPERATURE", "0.0")),  # Lower = less hallucination
 )
 
 speech_llm = OllamaLLM(
-    model=os.environ.get("OLLAMA_SPEECH_LLM_MODEL", "qwen2.5:7b"),
+    model=os.environ.get("OLLAMA_SPEECH_LLM_MODEL", "qwen2.5:7b-instruct"),
     temperature=float(os.environ.get("OLLAMA_SPEECH_TEMPERATURE", "0.1")),
 )
 
 # Dedicated grammar rewrite LLM — use the stronger model if available
 grammar_llm = OllamaLLM(
-    model=os.environ.get("OLLAMA_GRAMMAR_LLM_MODEL", os.environ.get("OLLAMA_SPEECH_LLM_MODEL", "qwen2.5:7b")),
+    model=os.environ.get("OLLAMA_GRAMMAR_LLM_MODEL", os.environ.get("OLLAMA_SPEECH_LLM_MODEL", "qwen2.5:7b-instruct")),
     temperature=0.0,  # Deterministic for grammar correction
 )
 
