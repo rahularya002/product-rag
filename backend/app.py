@@ -51,7 +51,7 @@ if _env_chroma_dir:
 elif _pointer.exists():
     CHROMA_DIR = Path(_pointer.read_text(encoding="utf-8").strip())
 else:
-    CHROMA_DIR = BASE_DIR / "db"
+    CHROMA_DIR = BASE_DIR / "/product-rag/backend/db_runs/db_1774617048"
 
 embeddings = OllamaEmbeddings(model=os.environ.get("OLLAMA_EMBED_MODEL", "nomic-embed-text"))
 db = Chroma(persist_directory=str(CHROMA_DIR), embedding_function=embeddings)
