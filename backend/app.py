@@ -31,11 +31,16 @@ import edge_tts
 app = FastAPI()
 
 # ---------------- CORS ----------------
-cors_origins = os.environ.get("CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000")
+cors_origins = os.environ.get(
+    "CORS_ORIGINS",
+    "http://localhost:3000,https://product-rag-five.vercel.app"
+)
+
 allow_origins = [o.strip() for o in cors_origins.split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allow_origins or ["http://localhost:3000"],
+    allow_origins=allow_origins,
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
