@@ -8,7 +8,7 @@ from typing import List
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import Response, StreamingResponse
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 from langchain_ollama import OllamaLLM, OllamaEmbeddings
@@ -31,30 +31,23 @@ import edge_tts
 app = FastAPI()
 
 # ---------------- CORS ----------------
+app = FastAPI()
+
+# ---------------- CORS ----------------
 cors_origins = os.environ.get(
     "CORS_ORIGINS",
-    # If you don't explicitly set CORS_ORIGINS on the host, allow all by default.
-    # This avoids "works locally, breaks on Vercel/Runpod" surprises.
-    "*"
+    "http://localhost:3000,https://product-rag-five.vercel.app"
 )
 
 allow_origins = [o.strip() for o in cors_origins.split(",") if o.strip()]
-cors_origin_regex = os.environ.get("CORS_ORIGIN_REGEX", r"https://.*\.vercel\.app")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allow_origins,
-    allow_origin_regex=cors_origin_regex,
+    allow_origins=["*"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-@app.options("/{path:path}")
-def cors_preflight_handler(path: str):
-    # Explicitly handle OPTIONS so preflights never 404 behind proxies.
-    return Response(status_code=204)
 
 # ---------------- VECTOR DB ----------------
 BASE_DIR = Path(__file__).resolve().parent
